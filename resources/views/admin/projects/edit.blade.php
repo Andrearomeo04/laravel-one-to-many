@@ -23,8 +23,9 @@
                         <label for="" class="control-label">Tipologia Progetto</label>
                         <select name="type_id" class="form-select" id="" required>
                             <option value="">seleziona la tipologia</option>
-                            <option value="">front-end</option>
-                            <option value="">back-end</option>
+                            @foreach ($types as $type)
+                            <option value="{{ $type->id }}" @selected($type->id == old('type_id', $project->type ? $project->type->id : ''))>{{ $type->title }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-12">
