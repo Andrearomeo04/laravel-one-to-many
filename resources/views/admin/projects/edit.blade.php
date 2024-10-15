@@ -7,17 +7,29 @@
             <h2>Modifica</h2>
         </div>
         <div class="col-12">
-            <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post">
-                @csrf
-                @method('PUT') 
+        <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
+                @csrf 
+                @method('PUT')
                 <div class="row">
                     <div class="col-12">
+                        <label for="" class="control-label">Immagine</label>
+                        <input type="file" name="image" id="" class="form-control" placeholder="Seleziona un immagine..." value="{{ old('image') }}">
+                    </div>
+                    <div class="col-12">
                         <label for="" class="control-label">Nome del Progetto</label>
-                        <input type="text" name="title" id="" class="form-control" placeholder="Nome del Progetto" value="{{ old('title', $project->title) }}">
+                        <input type="text" name="title" id="" class="form-control" placeholder="Nome del Progetto" value="{{ old('title') }}">
+                    </div>
+                    <div class="col-12">
+                        <label for="" class="control-label">Tipologia Progetto</label>
+                        <select name="type_id" class="form-select" id="" required>
+                            <option value="">seleziona la tipologia</option>
+                            <option value="">front-end</option>
+                            <option value="">back-end</option>
+                        </select>
                     </div>
                     <div class="col-12">
                         <label for="" class="control-label">Descrizione</label>
-                        <textarea name="description" id="" cols="25" row="10" class="form-control">{{ old('description', $project->description) }}</textarea>
+                        <textarea name="description" id="" cols="25" row="10" class="form-control">{{ old('description') }}</textarea>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-success">Salva</button>

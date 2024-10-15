@@ -28,6 +28,14 @@
                         <input type="text" name="title" id="" class="form-control" placeholder="Nome del Progetto" value="{{ old('title') }}">
                     </div>
                     <div class="col-12">
+                        <label for="" class="control-label">Tipologia Progetto</label>
+                        <select name="type_id" class="form-select" id="" required>
+                            <option value="">seleziona la tipologia</option>
+                            <option value="">front-end</option>
+                            <option value="">back-end</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
                         <label for="" class="control-label">Descrizione</label>
                         <textarea name="description" id="" cols="25" row="10" class="form-control">{{ old('description') }}</textarea>
                     </div>
